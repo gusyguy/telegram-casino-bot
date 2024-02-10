@@ -3,9 +3,9 @@ services:
     bot:
         # This is universal x86/ARM64 build
         #image: groosha/telegram-casino-bot:latest
-            build:
-                context: .
-                dockerfile: Dockerfile
+        build:
+            context: .
+            dockerfile: Dockerfile
         restart: "always"
         stop_signal: SIGINT
         volumes:
