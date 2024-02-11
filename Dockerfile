@@ -9,7 +9,7 @@ RUN pip install --upgrade pip setuptools wheel
 
 RUN pip install --no-cache-dir --upgrade pip \
  && pip install --no-cache-dir -r requirements.txt
-
+RUN pip install aiohttp
 # Итоговый образ, в котором будет работать бот
 FROM python:3.9-slim-bullseye
 COPY --from=compile-image /opt/venv /opt/venv
