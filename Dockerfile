@@ -1,5 +1,11 @@
 # Étape de compilation
 FROM python:3.9-slim-bullseye as compile-image
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libffi-dev \
+    libssl-dev \
+    python3-dev
+
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 COPY requirements.txt .
