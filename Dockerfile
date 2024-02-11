@@ -1,5 +1,5 @@
 # Étape de compilation
-FROM python:3.9-slim-bullseye as compile-image
+FROM python:3.1-slim-bullseye as compile-image
 RUN apt-get update && apt-get install -y \
     build-essential \
     libffi-dev \
@@ -13,7 +13,7 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 # Étape finale pour l'exécution
-FROM python:3.9-slim-bullseye
+FROM python:3.1-slim-bullseye
 COPY --from=compile-image /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /app
